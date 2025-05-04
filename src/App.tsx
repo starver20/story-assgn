@@ -8,9 +8,11 @@ function App() {
   const [selectedUserId, setSelectedUserId] = useState<string | null>(null);
   const [selectedStoryId, setSelectedStoryId] = useState<string | null>(null);
 
-  const handleStoryClick = (userId: string, storyId: string) => {
+  const handleStoryClick = (userId: string) => {
     setSelectedUserId(userId);
-    setSelectedStoryId(storyId);
+    setSelectedStoryId(
+      () => users.find((user) => user.id === userId)?.stories[0].id ?? null
+    );
   };
 
   const handleCloseStory = () => {

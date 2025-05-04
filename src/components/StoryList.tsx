@@ -3,7 +3,7 @@ import "./StoryList.css";
 
 interface StoryListProps {
   users: User[];
-  onStoryClick: (userId: string, storyId: string) => void;
+  onStoryClick: (userId: string) => void;
 }
 
 export const StoryList = ({ users, onStoryClick }: StoryListProps) => {
@@ -13,7 +13,7 @@ export const StoryList = ({ users, onStoryClick }: StoryListProps) => {
         <div
           key={user.id}
           className="story-item"
-          onClick={() => onStoryClick(user.id, user.stories[0].id)}
+          onClick={() => onStoryClick(user.id)}
         >
           <div className="story-avatar">
             <img src={user.avatarUrl} alt={user.username} />
