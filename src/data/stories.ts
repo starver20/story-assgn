@@ -1,6 +1,5 @@
 import { User } from "../types/story";
 
-// Helper function to generate consistent image URLs
 const getImageUrl = (
   id: number,
   width: number = 800,
@@ -12,51 +11,51 @@ const getImageUrl = (
 export const users: User[] = [
   {
     id: "1",
-    username: "john_doe",
-    avatarUrl: getImageUrl(1001, 200, 200), // Unique avatar
+    username: "Amar Narute",
+    avatarUrl: getImageUrl(1001, 200, 200),
     stories: [
       {
         id: "1-1",
-        imageUrl: getImageUrl(1005), // Beautiful mountain landscape
+        imageUrl: getImageUrl(1005),
         timestamp: Date.now() - 3600000,
       },
       {
         id: "1-2",
-        imageUrl: getImageUrl(1015), // City skyline
+        imageUrl: getImageUrl(1015), 
         timestamp: Date.now() - 3500000,
       },
     ],
   },
   {
     id: "2",
-    username: "jane_smith",
-    avatarUrl: getImageUrl(1002, 200, 200), // Unique avatar
+    username: "Awinash Narute",
+    avatarUrl: getImageUrl(1002, 200, 200),
     stories: [
       {
         id: "2-1",
-        imageUrl: getImageUrl(1025), // Nature scene
+        imageUrl: getImageUrl(1025), 
         timestamp: Date.now() - 3400000,
       },
       {
         id: "2-2",
-        imageUrl: getImageUrl(1035), // Urban photography
+        imageUrl: getImageUrl(1035), 
         timestamp: Date.now() - 3300000,
       },
       {
         id: "2-3",
-        imageUrl: getImageUrl(1045), // Architecture
+        imageUrl: getImageUrl(1045), 
         timestamp: Date.now() - 3200000,
       },
     ],
   },
   {
     id: "3",
-    username: "mike_wilson",
-    avatarUrl: getImageUrl(1003, 200, 200), // Unique avatar
+    username: "Abhi",
+    avatarUrl: getImageUrl(1003, 200, 200),
     stories: [
       {
         id: "3-1",
-        imageUrl: getImageUrl(1055), // Travel photography
+        imageUrl: getImageUrl(1055),
         timestamp: Date.now() - 3100000,
       },
     ],

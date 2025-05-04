@@ -1,55 +1,123 @@
-# React + TypeScript + Vite
+# Instagram-like Story Viewer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, performant implementation of an Instagram-like story viewer built with React, TypeScript, and Vite.
 
-Currently, two official plugins are available:
+## Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Check out the live application: [Story Viewer Demo](https://splendid-sopapillas-64dd00.netlify.app/)
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Smooth story viewing experience with progress bars
+- Pause/Resume functionality
+- Navigation between stories and users
+- Responsive design
+- Loading states and error handling
+- End-to-end testing with Cypress
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v14 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone <https://github.com/starver20/story-assgn.git>
+cd story-assgn
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Install dependencies:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+npm install
 ```
-# story-assgn
+
+### Running the Application
+
+1. Start the development server:
+
+```bash
+npm run dev
+```
+
+2. Open your browser and navigate to `http://localhost:5173`
+
+### Running Tests
+
+1. Start the development server in one terminal:
+
+```bash
+npm run dev
+```
+
+2. In another terminal, run the Cypress tests:
+
+```bash
+npx cypress open
+```
+
+## Design Choices and Optimizations
+
+### Performance Optimizations
+
+1. **Image Loading**
+
+   - Implemented progressive image loading with loading states
+   - Error handling for failed image loads
+
+2. **Animation**
+
+   - Used CSS transforms for animations
+
+3. **State Management**
+   - Efficient state updates using React hooks
+   - Memoized callbacks to prevent unnecessary re-renders
+   - Clean separation of concerns with custom hooks
+
+### Scalability Considerations
+
+1. **Component Architecture**
+
+   - Modular component design for easy maintenance
+   - Reusable components and hooks
+   - Clear separation of UI and business logic
+
+2. **Type Safety**
+
+   - Full TypeScript implementation
+   - Strong typing for props and state
+   - Interface definitions for better code maintainability
+
+3. **Testing Strategy**
+   - End-to-end tests with Cypress
+   - Test coverage for critical user flows
+
+### User Experience
+
+1. **Smooth Transitions**
+
+   - Progress bar animations
+   - Loading states for better feedback
+
+2. **Responsive Design**
+
+   - Mobile-first approach
+   - Flexible layouts
+   - Touch-friendly navigation
+
+3. **Error Handling**
+   - Graceful error states
+   - User-friendly error messages
+   - Fallback UI for failed loads
+
+## Tech Stack
+
+- React
+- TypeScript
+- Vite
+- Cypress
