@@ -32,6 +32,12 @@ function App() {
             onClose={handleCloseStory}
           />
         )}
+        <div style={{ color: "black" }}>
+          <div className="app-content">
+            <h1>Welcome to the Story Viewer</h1>
+            <p>Click on a user to view their stories.</p>
+          </div>
+        </div>
       </div>
     </>
   );
