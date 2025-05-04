@@ -2,8 +2,6 @@ import { useState, useEffect, useCallback } from "react";
 import { User, Story } from "../types/story";
 // import { prefetchStoryImages } from "../utils/imagePrefetch";
 
-const STORY_DURATION = 5000; // 5 seconds
-
 interface UseStoryViewerProps {
   users: User[];
   initialUserId: string;
@@ -54,6 +52,7 @@ export const useStoryViewer = ({
 
   const handleNext = useCallback(() => {
     setError(null);
+    setIsLoading(true);
     if (currentStoryIndex < currentUser.stories.length - 1) {
       setCurrentStoryId(currentUser.stories[currentStoryIndex + 1].id);
     } else {
@@ -70,21 +69,10 @@ export const useStoryViewer = ({
 
   useEffect(() => {
     setStartProgress(false);
-    setIsLoading(true);
     setIsPaused(false);
     setIsTransitioning(true);
     setError(null);
   }, [currentStoryId]);
-
-  useEffect(() => {
-    if (!isLoading && !isPaused) {
-      const timer = setTimeout(() => {
-        handleNext();
-      }, STORY_DURATION);
-
-      return () => clearTimeout(timer);
-    }
-  }, [handleNext, isLoading, isPaused]);
 
   const handleImageLoad = useCallback(() => {
     setIsLoading(false);
@@ -122,7 +110,9 @@ export const useStoryViewer = ({
 
   const togglePause = () => {
     setIsPaused(!isPaused);
-    setStartProgress(!isPaused);
+    if (!isPaused) {
+      setStartProgress(true);
+    }
   };
 
   const handleImageAbort = () => {

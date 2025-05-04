@@ -13,11 +13,9 @@ export const StoryModal = ({
     currentStory,
     currentStoryIndex,
     isLoading,
-    error,
-    direction,
     startProgress,
     isPaused,
-    isTransitioning,
+    error,
     handleNext,
     handlePrevious,
     handleImageLoad,
@@ -30,6 +28,12 @@ export const StoryModal = ({
     initialStoryId,
     onClose,
   });
+
+  const handleAnimationEnd = () => {
+    if (!isPaused) {
+      handleNext();
+    }
+  };
 
   return (
     <div className="story-viewer">
@@ -60,7 +64,10 @@ export const StoryModal = ({
               story.id === currentStory.id ? "active" : ""
             } ${index < currentStoryIndex ? "completed" : ""} ${
               story.id === currentStory.id && startProgress ? "start" : ""
-            } ${isPaused ? "paused" : ""}`}
+            } ${story.id === currentStory.id && isPaused ? "paused" : ""}`}
+            onAnimationEnd={
+              story.id === currentStory.id ? handleAnimationEnd : undefined
+            }
           />
         ))}
       </div>

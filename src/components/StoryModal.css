@@ -63,16 +63,21 @@
     flex: 1;
     height: 2px;
     background-color: rgba(255, 255, 255, 0.3);
+    margin: 0 2px;
     border-radius: 2px;
     overflow: hidden;
     position: relative;
   }
   
   .story-progress-bar.active {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.5);
   }
   
-  .story-progress-bar.active.start::after {
+  .story-progress-bar.completed {
+    background-color: white;
+  }
+  
+  .story-progress-bar.active::after {
     content: '';
     position: absolute;
     top: 0;
@@ -80,14 +85,18 @@
     height: 100%;
     width: 100%;
     background-color: white;
-    animation: progress 5s linear forwards;
+    transform: translateX(-100%);
   }
   
-  .story-progress-bar.completed {
-    background-color: white;
+  .story-progress-bar.active.start::after {
+    animation: slide 5s linear forwards;
   }
   
-  @keyframes progress {
+  .story-progress-bar.active.start.paused::after {
+    animation-play-state: paused;
+  }
+  
+  @keyframes slide {
     from {
       transform: translateX(-100%);
     }
