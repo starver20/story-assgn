@@ -15,7 +15,6 @@ interface UseStoryViewerReturn {
   isLoading: boolean;
   startProgress: boolean;
   isPaused: boolean;
-  isTransitioning: boolean;
   error: string | null;
   handleNext: () => void;
   handlePrevious: () => void;
@@ -37,7 +36,6 @@ export const useStoryViewer = ({
   const [error, setError] = useState<string | null>(null);
   const [startProgress, setStartProgress] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
-  const [isTransitioning, setIsTransitioning] = useState(true);
 
   const currentUser = users.find((user) => user.id === currentUserId)!;
   const currentStory = currentUser.stories.find(
@@ -67,14 +65,12 @@ export const useStoryViewer = ({
   useEffect(() => {
     setStartProgress(false);
     setIsPaused(false);
-    setIsTransitioning(true);
     setError(null);
   }, [currentStoryId]);
 
   const handleImageLoad = useCallback(() => {
     setIsLoading(false);
     setStartProgress(true);
-    setIsTransitioning(false);
   }, []);
 
   // Check if image is already loaded
@@ -128,7 +124,6 @@ export const useStoryViewer = ({
     isLoading,
     startProgress,
     isPaused,
-    isTransitioning,
     error,
     handleNext,
     handlePrevious,

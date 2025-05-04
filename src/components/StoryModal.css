@@ -126,14 +126,6 @@
     transform: translate(-50%, -50%);
   }
   
-  .story-image.left {
-    transform: translate(-150%, -50%);
-  }
-  
-  .story-image.right {
-    transform: translate(50%, -50%);
-  }
-  
   .story-image.hidden {
     opacity: 0;
     visibility: hidden;
@@ -177,20 +169,6 @@
     cursor: pointer;
   }
   
-  /* Cube transition animation */
-  @keyframes cube-transition {
-    0% {
-      transform: rotateY(0deg);
-    }
-    100% {
-      transform: rotateY(90deg);
-    }
-  }
-  
-  .story-viewer.transitioning {
-    animation: cube-transition 0.3s ease-in-out;
-  } 
-
   .story-pause-button{
     background: none;
     border: none;
@@ -198,18 +176,17 @@
     font-size: 24px;
     cursor: pointer;
     padding: 4px 8px;
-    
-}
-
-.story-error {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-size: 14px;
-  z-index: 2;
-}
+  }
+  
+  .story-error {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    z-index: 2;
+  }
