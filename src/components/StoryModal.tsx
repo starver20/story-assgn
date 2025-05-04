@@ -29,7 +29,7 @@ export const StoryModal = ({
   return (
     <div className="story-viewer">
       <div className="story-content">
-        {isLoading && <div className="story-loading">Loading...</div>}
+        {isLoading && <div className="story-loading" />}
         <img
           src={currentStory.imageUrl}
           alt="Story"
