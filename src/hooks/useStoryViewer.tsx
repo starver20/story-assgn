@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
 import { User, Story } from "../types/story";
-// import { prefetchStoryImages } from "../utils/imagePrefetch";
 
 interface UseStoryViewerProps {
   users: User[];
@@ -14,7 +13,6 @@ interface UseStoryViewerReturn {
   currentStory: Story;
   currentStoryIndex: number;
   isLoading: boolean;
-  // direction: "left" | "right";
   startProgress: boolean;
   isPaused: boolean;
   isTransitioning: boolean;
@@ -36,7 +34,6 @@ export const useStoryViewer = ({
   const [currentUserId, setCurrentUserId] = useState(initialUserId);
   const [currentStoryId, setCurrentStoryId] = useState(initialStoryId);
   const [isLoading, setIsLoading] = useState(true);
-  // const [direction, setDirection] = useState<"left" | "right">("right");
   const [error, setError] = useState<string | null>(null);
   const [startProgress, setStartProgress] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
@@ -124,41 +121,11 @@ export const useStoryViewer = ({
     setError("Failed to load image");
   };
 
-  // Prefetch next user's stories when current user's stories are almost done
-  // useEffect(() => {
-  //   const prefetchNextUserStories = async () => {
-  //     const currentUserIndex = users.findIndex(
-  //       (user) => user.id === currentUserId
-  //     );
-  //     if (currentUserIndex < users.length - 1) {
-  //       const nextUser = users[currentUserIndex + 1];
-  //       if (currentStoryIndex === currentUser.stories.length - 2) {
-  //         await prefetchStoryImages(nextUser.stories);
-  //       }
-  //     }
-  //   };
-
-  //   prefetchNextUserStories();
-  // }, [currentUserId, currentStoryIndex, currentUser.stories.length, users]);
-
-  // Prefetch remaining stories of current user when first story is loaded
-  // useEffect(() => {
-  //   const prefetchRemainingStories = async () => {
-  //     if (currentStoryIndex === 0 && !isLoading) {
-  //       const remainingStories = currentUser.stories.slice(1);
-  //       await prefetchStoryImages(remainingStories);
-  //     }
-  //   };
-
-  //   prefetchRemainingStories();
-  // }, [isLoading, currentStoryIndex, currentUser.stories]);
-
   return {
     currentUser,
     currentStory,
     currentStoryIndex,
     isLoading,
-    // direction,
     startProgress,
     isPaused,
     isTransitioning,
